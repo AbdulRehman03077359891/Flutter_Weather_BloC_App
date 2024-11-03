@@ -2,7 +2,7 @@ import 'dart:async'; // Required for Timer
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather/weather.dart';
-import 'package:weather_bloc/API/weather_apis.dart';
+// import 'package:weather_bloc/API/weather_apis.dart';
 
 part 'weather_event.dart';
 part 'weather_state.dart';
@@ -19,7 +19,7 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
       emit(WeatherLoading());}
       try {
         WeatherFactory weatherFactory =
-            WeatherFactory(weatherApiKey, language: Language.ENGLISH);
+            WeatherFactory("weatherApiKey", language: Language.ENGLISH);
         Weather weather = await weatherFactory.currentWeatherByLocation(
             event.status == true ? event.position[0] : event.position.latitude,
             event.status == true ? event.position[1] : event.position.longitude);
