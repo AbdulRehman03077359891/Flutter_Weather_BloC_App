@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:weather/weather.dart';
 
-class TempMinMaxRow extends StatelessWidget {
-  final Temperature tempMin;
-  final Temperature tempMax;
+class HumidityWindRow extends StatelessWidget {
+  final double humidity;
+  final double wind;
 
-  const TempMinMaxRow({
+  const HumidityWindRow({
     super.key,
-    required this.tempMin,
-    required this.tempMax,
+    required this.humidity,
+    required this.wind,
   });
 
   @override
@@ -16,27 +15,27 @@ class TempMinMaxRow extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        TempMinMaxItem(
-          iconPath: "assets/13.png",
-          label: "Temp Max",
-          value: "${tempMax.celsius!.round()}°C",
+        HumidityWindItem(
+          iconPath: "assets/9.png",
+          label: "Wind Speed",
+          value: "$wind km/h",
         ),
-        TempMinMaxItem(
-          iconPath: "assets/14.png",
-          label: "Temp Min",
-          value: "${tempMin.celsius!.round()}°C",
+        HumidityWindItem(
+          iconPath: "assets/18.png",
+          label: "Humidity",
+          value: "$humidity",
         ),
       ],
     );
   }
 }
 
-class TempMinMaxItem extends StatelessWidget {
+class HumidityWindItem extends StatelessWidget {
   final String iconPath;
   final String label;
   final String value;
 
-  const TempMinMaxItem({
+  const HumidityWindItem({
     super.key,
     required this.iconPath,
     required this.label,
@@ -48,7 +47,7 @@ class TempMinMaxItem extends StatelessWidget {
     return Row(
       children: [
         Image.asset(iconPath, scale: 10),
-        const SizedBox(width: 5),
+        const SizedBox(width: 9),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

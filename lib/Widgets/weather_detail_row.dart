@@ -15,14 +15,15 @@ class WeatherDetailRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisSize: MainAxisSize.max,
       children: [
         WeatherDetailItem(
-          iconPath: "assets/5.png",
+          iconPath: "assets/11.png",
           label: "Sunrise",
           time: DateFormat().add_jm().format(sunrise),
         ),
         WeatherDetailItem(
-          iconPath: "assets/9.png",
+          iconPath: "assets/12.png",
           label: "Sunset",
           time: DateFormat().add_jm().format(sunset),
         ),
@@ -47,7 +48,7 @@ class WeatherDetailItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Image.asset(iconPath, scale: 8),
+        Image.asset(iconPath, scale: 10),
         const SizedBox(width: 5),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,

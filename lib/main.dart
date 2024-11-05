@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_bloc/bloc/Location/location_bloc.dart'; // Import LocationBloc
 import 'package:weather_bloc/bloc/Location/location_event.dart';
 import 'package:weather_bloc/bloc/Location/location_state.dart';
-import 'package:weather_bloc/bloc/weather_bloc.dart';
+import 'package:weather_bloc/bloc/Weather/weather_bloc.dart';
 import 'package:weather_bloc/screens/home_screen.dart';
 
 void main() {

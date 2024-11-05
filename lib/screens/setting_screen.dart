@@ -6,7 +6,7 @@ import 'package:weather_bloc/Widgets/choose_city.dart';
 import 'package:weather_bloc/Widgets/e1_button.dart';
 import 'package:weather_bloc/bloc/Location/location_bloc.dart';
 import 'package:weather_bloc/bloc/Location/location_event.dart';
-import 'package:weather_bloc/bloc/weather_bloc.dart';
+import 'package:weather_bloc/bloc/Weather/weather_bloc.dart';
 
 class SettingsScreen extends StatefulWidget {
   final VoidCallback onNavigateToWeather;
