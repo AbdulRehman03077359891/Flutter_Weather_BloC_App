@@ -1,4 +1,4 @@
-
+import 'package:eve_de_muslim_lite/Screens/chatbot_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_bloc/Widgets/background_decoration.dart';
@@ -45,6 +45,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
         _buildCoordinatesDisplay(),
         const SizedBox(height: 20),
         _buildGetCurrentLocationButton(context),
+        const SizedBox(height: 20),
+        _buildChatScreenButton(context)
       ],
     );
   }
@@ -55,16 +57,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
       selectedCity: _selectedCity,
       onChange: (city) {
         if (city != null) {
-          final coordinates = CityChoose.cityCoordinates[city]!; // Access cityCoordinates
+          final coordinates =
+              CityChoose.cityCoordinates[city]!; // Access cityCoordinates
           setState(() {
             _selectedCity = city;
-            _latitude = coordinates[0];  // Update latitude
-            _longitude = coordinates[1];  // Update longitude
+            _latitude = coordinates[0]; // Update latitude
+            _longitude = coordinates[1]; // Update longitude
           });
 
           // Dispatch event using the existing WeatherBloc instance
-          context.read<WeatherBloc>().add(FetchWeather(coordinates, true, true));
-          widget.onNavigateToWeather();  // Call the navigation callback
+          context
+              .read<WeatherBloc>()
+              .add(FetchWeather(coordinates, true, true));
+          widget.onNavigateToWeather(); // Call the navigation callback
         }
       },
       onCoordinatesChanged: (lat, lon) {
@@ -101,6 +106,18 @@ class _SettingsScreenState extends State<SettingsScreen> {
       onPressed: () {
         // Dispatch event to get current location
         context.read<LocationBloc>().add(GetLocation());
+      },
+    );
+  }
+
+  Widget _buildChatScreenButton(BuildContext context) {
+    return E1Button(
+      backColor: Colors.orange,
+      text: "Chat Screen",
+      textColor: Colors.white,
+      onPressed: () {
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => ChatScreen(
+            userUid: "userUid", userName: "userName", userEmail: "userEmail")));
       },
     );
   }
